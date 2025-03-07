@@ -19,30 +19,32 @@ A lightweight utility to check if a variable is not empty.
 ## 📦 Installation
 
 ```bash
-npm install not-empty
+npm install not-empty-ts
 ```
 
 ## 📚 Usage
 
 ```ts
-import { notEmpty } from "not-empty";
+import { notEmpty } from "not-empty-ts";
 
 type User = {
 	name: string;
 	age: number;
 };
 
-async function getUser() {
+async function getUser(): Promise<User|null> {
 	const response = await fetch("https://api.example.com/user");
 	const user = await response.json();
-	return user;
+	if (response.ok) {
+		return user;
+	}
+	return null;
 }
 
 const user = await getUser();
 
-const notEmptyUser = notEmpty(user);
 
-if (user.age > 29){ // now this is type safe
+if (notEmpty(user) && user.age > 29){ // now this is type safe
 	console.log("User is older than 29");
 }
 
@@ -76,8 +78,6 @@ npm test
 ## 🤝 Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
-
-
 
 ## 📝 License
 
