@@ -52,32 +52,28 @@ if (notEmpty(user) && user.age > 29){ // now this is type safe
 ## 📘 API
 
 ```ts
+//Checks if the given object is not null or undefined and returns it.
 notEmpty<T>(o: T | null | undefined): T
-```
 
-### `notEmpty(o: T | null | undefined): T`
+//Checks if the given object is not null and returns it.
+notNull<T>(o: T | null): T
 
-Checks if the given object is not null or undefined and returns it.
-
-### `notNull<T>(o: T | null): T`
-
-Checks if the given object is not null and returns it.
-
-### `notUndefined<T>(o: T | undefined): T`
-
-Checks if the given object is not undefined and returns it.
-
-## 🚲 Testing
-
-We use [Vitest](https://vitest.dev/) for testing.
-
-```bash
-npm test
+//Checks if the given object is not undefined and returns it.
+notUndefined<T>(o: T | undefined): T
 ```
 
 ## 🤝 Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
+
+### 🚲 Testing
+
+We use [Vitest](https://vitest.dev/) for testing aim for 100% coverage.
+
+```bash
+npm test
+```
+
 
 ## 📝 License
 
